@@ -6,7 +6,6 @@ export const incrementCounterReducer = ( state, action) => {
     console.log("Action State:", state)
     //find the index in the state item by id
     const index = state?.findIndex((user) => user.id === action.payload.id);
+    // Update state counter
     state[index].counter = parseInt(action.payload.counter);
-
-    return state;
   };

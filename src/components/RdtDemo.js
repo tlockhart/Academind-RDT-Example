@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getUsers } from "../redux/usersSlice";
 import DisplayUser from "./DisplayUser";
+import AddUser from "./AddUser";
 
 const RdtDemo = () => {
   const dispatch = useDispatch();
 
-  // keep track of users:
-  const users = useSelector((state) => state.users);
-  console.log("USERS:", users);
+  // NOTE: We no longer have to pass props into components:
+  // Simply add the data on the component you want.
+  // const users = useSelector((state) => state.users);
+  // console.log("USERS:", users);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -17,7 +19,8 @@ const RdtDemo = () => {
   return (
     <div>
       <form>
-        <DisplayUser users={users} />
+        <DisplayUser/>
+        <AddUser />
       </form>
     </div>
   );

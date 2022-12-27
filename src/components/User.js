@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateName, incrementCounter } from "../redux/usersSlice";
 
 const User = ({ user }) => {
@@ -16,9 +16,9 @@ const User = ({ user }) => {
     setInputText(value);
   }
 
-  const handleSubmitClick = (event, id) => {
+  const handleUpdateClick = (event, id) => {
     event.preventDefault();
-    console.log("handleSubmitClick Name:", event.currentTarget);
+    console.log("handleUpdateClick Name:", event.currentTarget);
     // Dispatch the updateName Action and pass in id and name to update
     dispatch(
       updateName({
@@ -72,10 +72,10 @@ const User = ({ user }) => {
         type="button"
         onClick={(event) => {
           event.stopPropagation();
-          handleSubmitClick(event, id);
+          handleUpdateClick(event, id);
         }}
       >
-        Submit
+        Update
       </button>
       <span style={{ marginLeft: 10 + 'px' }}>count: {counter}</span>
     </div>

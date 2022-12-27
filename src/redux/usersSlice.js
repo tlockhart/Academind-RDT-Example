@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { incrementCounterReducer} from "./reducers/counterReducer";
 import { updateNameReducer } from "./reducers/nameReducer";
 import { getUsersReducer} from "./reducers/usersReducer";
+import { addUserReducer } from "./reducers/addUserReducer";
 
 // Step3 Option: Create a Slice:
 const usersSlice = createSlice({
@@ -11,16 +12,12 @@ const usersSlice = createSlice({
     {
       id: 0,
       index: 0,
-      // title: "INCREMENT_COUNTER",
-      // type: "INCREMENT_COUNTER",
       counter: 0,
       name: "John Doe",
     },
     {
       id: 1,
       index: 1, 
-      // title: "UPDATE_NAME",
-      // type: "UPDATE_NAME",
       counter: 0,
       name: "Jane Doe",
     },
@@ -29,11 +26,12 @@ const usersSlice = createSlice({
     incrementCounter: incrementCounterReducer,
     updateName: updateNameReducer,
     getUsers: getUsersReducer,
+    addUser: addUserReducer,
   },
 });
 
 // Note: usersSlice.actions automatically creates actions based on our reducer names
-export const { incrementCounter, updateName, getUsers} = usersSlice.actions;
+export const { incrementCounter, updateName, getUsers, addUser} = usersSlice.actions;
 
 // export  reducer from todoSlice
 export default usersSlice.reducer;
