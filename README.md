@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# Academind-RDT-Example
+Simple react rdt example Prototype, with mocked data
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

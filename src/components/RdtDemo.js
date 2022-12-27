@@ -1,11 +1,6 @@
-import React, {useEffect} from "react";
-import { redux } from "@reduxjs/toolkit";
-import { incrementCounter } from "../redux/reducers/counterReducer";
-import { updateName } from "../redux/reducers/nameReducer";
-import { useSelector, useDispatch } from 'react-redux';
-// import getTodosAsync Thunk middleware
-// import { getUsers as getAllUsers } from '../redux/usersSlice';
-
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getUsers } from "../redux/usersSlice";
 import DisplayUser from "./DisplayUser";
 
 const RdtDemo = () => {
@@ -13,26 +8,16 @@ const RdtDemo = () => {
 
   // keep track of users:
   const users = useSelector((state) => state.users);
-console.log("USERS:", users);
+  console.log("USERS:", users);
 
-  const handleSubmitClick = (event) => {
-    event.preventDefault();
-    console.log("Name:", event.currentTarget.value);
-    // dispatch updateName Reducer
-    // dispatch(updateName({
-    // 	id: id,
-    // }));
-  };
-
-  useEffect(()=> {
-	// dispatch(getAllUsers())
+  useEffect(() => {
+    dispatch(getUsers());
   }, [dispatch]);
 
   return (
     <div>
-      <form onClick={handleSubmitClick}>
-        {/* <DisplayUser
-		users={users}/> */}
+      <form>
+        <DisplayUser users={users} />
       </form>
     </div>
   );
