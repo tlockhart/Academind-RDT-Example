@@ -4,6 +4,7 @@ import { incrementCounterReducer} from "./reducers/counterReducer";
 import { updateNameReducer } from "./reducers/nameReducer";
 import { getUsersReducer} from "./reducers/usersReducer";
 import { addUserReducer } from "./reducers/addUserReducer";
+import { deleteUserReducer } from "./reducers/deleteUserReducer";
 
 // Step3 Option: Create a Slice:
 const usersSlice = createSlice({
@@ -27,11 +28,12 @@ const usersSlice = createSlice({
     updateName: updateNameReducer,
     getUsers: getUsersReducer,
     addUser: addUserReducer,
+    deleteUser: deleteUserReducer
   },
 });
 
 // Note: usersSlice.actions automatically creates actions based on our reducer names
-export const { incrementCounter, updateName, getUsers, addUser} = usersSlice.actions;
+export const { incrementCounter, updateName, getUsers, addUser, deleteUser} = usersSlice.actions;
 
 // export  reducer from todoSlice
 export default usersSlice.reducer;

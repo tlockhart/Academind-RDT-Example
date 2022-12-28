@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateName, incrementCounter } from "../redux/usersSlice";
+import { updateName, incrementCounter, deleteUser } from "../redux/usersSlice";
 
 const User = ({ user }) => {
   const dispatch = useDispatch();
@@ -27,7 +27,17 @@ const User = ({ user }) => {
       })
     );
   };
-
+  
+  const handleDeleteClick = (event, id) => {
+    event.preventDefault();
+    console.log("handleUpdateClick Name:", event.currentTarget);
+    // Dispatch the updateName Action and pass in id and name to update
+    dispatch(
+      deleteUser({
+        id: id,
+      })
+    );
+  };
   const handleIncrementClick = (event, id, counter) => {
     event.preventDefault();
     console.log(`Increment Event id: ${id}, counter: ${counter}`);
@@ -76,6 +86,17 @@ const User = ({ user }) => {
         }}
       >
         Update
+      </button>
+      <button
+        style={{ marginLeft: 10 +'px' }}
+        className="btn btn-danger"
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          handleDeleteClick(event, id);
+        }}
+      >
+        Delete
       </button>
       <span style={{ marginLeft: 10 + 'px' }}>count: {counter}</span>
     </div>
